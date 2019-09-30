@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Midterm_Arzola
 {
-    public class Problem1
+    public class Problem1 : IProblem
     {
         #region Properties
         private int[] _FourPints = new int[4];
@@ -19,6 +19,39 @@ namespace Midterm_Arzola
         public WaterProblem WaterProblem { get; set; } = new WaterProblem();
         #endregion
 
+        /// <summary>
+        /// WaterProblem Extenstion Method to Pour ThreeUnitContainer in Custom Container
+        /// </summary>
+        /// <param name="waterProblem">parent object</param>
+        /// <param name="index">glass index</param>
+        public void PourThreePintToFourPintGlass(int index)
+        {
+            if(index < FourPints.Length)
+            {
+                var remaining = AddToFourPintGlass(index, WaterProblem.ThreeUnitContainer);
+                WaterProblem.ThreeUnitContainer = remaining;
+            }
+        }
+
+        /// <summary>
+        /// WaterProblem Extenstion Method to Pour FiveUnitContainer in Custom Container
+        /// </summary>
+        /// <param name="waterProblem">parent obejct</param>
+        /// <param name="index">glass index</param>
+        public void PourFivePintToFourPintGlass(int index)
+        {
+            if (index < this.FourPints.Length)
+            {
+                var remaining = AddToFourPintGlass(index, WaterProblem.FiveUnitContainer);
+                WaterProblem.FiveUnitContainer = remaining;
+            }
+        }
+
+        #region Interface Implementation
+        /// <summary>
+        /// Play Game
+        /// </summary>
+        /// <returns>Boolean Value indicated game was won</returns>
         public bool Play()
         {
             var play = true;
@@ -80,40 +113,27 @@ namespace Midterm_Arzola
         }
 
         /// <summary>
-        /// WaterProblem Extenstion Method to Pour ThreeUnitContainer in Custom Container
+        /// Utilizes funcional programming to determine if all glasses have exactly one pint
         /// </summary>
-        /// <param name="waterProblem">parent object</param>
-        /// <param name="index">glass index</param>
-        public void PourThreePintToFourPintGlass(int index)
-        {
-            if(index < FourPints.Length)
-            {
-                var remaining = AddToFourPintGlass(index, WaterProblem.ThreeUnitContainer);
-                WaterProblem.ThreeUnitContainer = remaining;
-            }
-        }
-
-        /// <summary>
-        /// WaterProblem Extenstion Method to Pour FiveUnitContainer in Custom Container
-        /// </summary>
-        /// <param name="waterProblem">parent obejct</param>
-        /// <param name="index">glass index</param>
-        public void PourFivePintToFourPintGlass(int index)
-        {
-            if (index < this.FourPints.Length)
-            {
-                var remaining = AddToFourPintGlass(index, WaterProblem.FiveUnitContainer);
-                WaterProblem.FiveUnitContainer = remaining;
-            }
-        }
-
-        #region Private Methods
-        //Utilizes funcional programming to determine if all glasses have exactly one pint
-        private bool CheckWin()
+        /// <returns></returns>
+        public bool CheckWin()
         {
             var allOne = Array.TrueForAll(FourPints, val => val.Equals(1));
             return allOne;
         }
+
+        /// <summary>
+        /// Prints Glass Status
+        /// </summary>
+        public void PrintStatus()
+        {
+            Console.WriteLine("Bartender:");
+            WaterProblem.PrintStatus("Three Pint Glass", "Five Pint Glass");
+        }
+        #endregion
+
+        #region Private Methods
+
 
         //Adds given amount to given glass index and returns remaining amount
         private int AddToFourPintGlass(int index, int amount)
@@ -154,12 +174,6 @@ namespace Midterm_Arzola
             Console.WriteLine("P32G - Pour to Three Pint Glass to One of the Four Pint Glasses");
             Console.WriteLine("P52G - Pour to Five Pint Glass to One of the Four Pint Glasses");
             Console.WriteLine();
-        }
-
-        private void PrintStatus()
-        {
-            Console.WriteLine("Bartender:");
-            WaterProblem.PrintStatus("Three Pint Glass", "Five Pint Glass");
         }
 
         private void PrintGlassesStatus()
