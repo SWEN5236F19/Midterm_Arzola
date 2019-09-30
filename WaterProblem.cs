@@ -1,29 +1,22 @@
-﻿namespace Midterm_Arzola
+﻿using System;
+
+namespace Midterm_Arzola
 {
     public class WaterProblem
     {
         #region Properties
-        private int _FiveUnitContainer;
+        public int FiveUnitContainer { get; set; }
 
-        public int FiveUnitContainer
-        {
-            get { return _FiveUnitContainer; }
-        }
-
-        private int _ThreeUnitContainer;
-
-        public int ThreeUnitContainer
-        {
-            get { return _ThreeUnitContainer; }
-        }
+        public int ThreeUnitContainer { get; set; }
         #endregion
 
+        #region Public Methods
         /// <summary>
         /// Empties Five Unit Container
         /// </summary>
         public void EmptyFiveUnitContainer()
         {
-            this._FiveUnitContainer = 0;
+            this.FiveUnitContainer = 0;
         }
 
         /// <summary>
@@ -31,65 +24,89 @@
         /// </summary>
         public void EmptyThreeUnitContainer()
         {
-            this._ThreeUnitContainer = 0;
+            this.ThreeUnitContainer = 0;
         }
 
+        /// <summary>
+        /// Fills the Five Unit Container to the top
+        /// </summary>
         public void FillFiveUnitContainer()
         {
-            this._FiveUnitContainer = 5;
+            this.FiveUnitContainer = 5;
         }
 
+        /// <summary>
+        /// Fills the three unit container to the top
+        /// </summary>
         public void FillThreeUnitContainer()
         {
-            this._ThreeUnitContainer = 3;
+            this.ThreeUnitContainer = 3;
         }
 
+        /// <summary>
+        /// Pours volume from ThreeUnitContainer to FiveUnitContainer and sets remaining amount in ThreeUnitContainer
+        /// </summary>
         public void PourToFiveUnitContainer()
         {
             var remaining = AddToFiveUnitContainer(this.ThreeUnitContainer);
-            this._ThreeUnitContainer = remaining;
+            this.ThreeUnitContainer = remaining;
         }
 
+        /// <summary>
+        /// Pours volume from FiveUnitContainer to ThreeUnitContainer and sets remaining amount in FiveUnitContainer
+        /// </summary>
         public void PourToThreeUnitContainer()
         {
             var remaining = AddToThreeUnitContainer(this.FiveUnitContainer);
-            this._FiveUnitContainer = remaining;
+            this.FiveUnitContainer = remaining;
         }
 
+        /// <summary>
+        /// Prints the current status of the two containers
+        /// </summary>
+        /// <param name="labelThreeUnit"></param>
+        /// <param name="labelFiveUnit"></param>
+        public void PrintStatus(string labelThreeUnit, string labelFiveUnit)
+        {
+            Console.Write(labelThreeUnit + ": " + this.ThreeUnitContainer + " | ");
+            Console.WriteLine(labelFiveUnit + ": " + this.FiveUnitContainer);
+        }
+        #endregion
+
         #region PrivateMethods
+        //Adds given amount to FiveUnitContainer and returns remaining amount
         private int AddToFiveUnitContainer(int amt)
         {
             var freeVolume = 5 - this.FiveUnitContainer;
             if (freeVolume >= amt)
             {
-                this._FiveUnitContainer += amt;
+                this.FiveUnitContainer += amt;
                 return 0;
             }
             else
             {
                 var remaining = amt - freeVolume;
-                this._FiveUnitContainer += freeVolume;
+                this.FiveUnitContainer += freeVolume;
                 return remaining;
             }
         }
 
+        // Adds given amount to ThreeUnitContainer and returns remaining amt
         private int AddToThreeUnitContainer(int amt)
         {
             var freeVolume = 3 - this.ThreeUnitContainer;
             if (freeVolume >= amt)
             {
-                this._ThreeUnitContainer += amt;
+                this.ThreeUnitContainer += amt;
                 return 0;
             }
             else
             {
                 var remaining = amt - freeVolume;
-                this._ThreeUnitContainer += freeVolume;
+                this.ThreeUnitContainer += freeVolume;
                 return remaining;
             }
         }
         #endregion
-
-
     }
 }
