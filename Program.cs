@@ -111,6 +111,15 @@ namespace Midterm_Arzola
             }
             else if (level == 3 || allLevels)
             {
+                Console.Write("5 - Finish the Water Problem in less than 4 moves - Using just a five-gallon bucket and a three-gallon bucket, can you put" +
+                    "four gallons of water in the five - gallon bucket ? ");
+                if (level3["problem5"]) Console.Write(" - COMPLETED");
+                Console.WriteLine();
+                Console.Write("6 - Towers of Hanoi - You have three rods, one with a stack of three disks. Move the stack of discs to another rod without\n" +
+                    "1.) Only Moving One Disk at a Time" +
+                    "2.) Only stacking a larger disk ontop of a smaller disk\n");
+                if (level3["problem6"]) Console.Write(" - COMPLETED");
+                Console.WriteLine();
 
             }
             Console.WriteLine("Exit - To Close Game");

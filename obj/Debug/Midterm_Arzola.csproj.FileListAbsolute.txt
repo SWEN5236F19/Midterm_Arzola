@@ -1,7 +1,0 @@
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\bin\Debug\Midterm_Arzola.exe.config
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\bin\Debug\Midterm_Arzola.exe
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\bin\Debug\Midterm_Arzola.pdb
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\obj\Debug\Midterm_Arzola.csprojAssemblyReference.cache
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\obj\Debug\Midterm_Arzola.csproj.CoreCompileInputs.cache
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\obj\Debug\Midterm_Arzola.exe
-C:\Users\Adriana\Source\Repos\Arzola_Midterm\Midterm_Arzola\obj\Debug\Midterm_Arzola.pdb
