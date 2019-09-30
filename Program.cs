@@ -48,6 +48,9 @@ namespace Midterm_Arzola
                         if (completed) { MarkGameCompleted("problem2"); }
                         break;
                     case "3":
+                        Problem3 prob3 = new Problem3();
+                        completed = prob3.Play();
+                        if (completed) { MarkGameCompleted("problem3"); }
                         break;
                     case "4":
                         break;
@@ -70,7 +73,7 @@ namespace Midterm_Arzola
                     "an unlimited supply of beer how does he get a single pint in either glass ? ");
                 if (level1["problem1"]) Console.Write(" - COMPLETED");
                 Console.WriteLine();
-                Console.WriteLine("2 - Using just a five-gallon bucket and a three-gallon bucket, can you put" +
+                Console.Write("2 - Using just a five-gallon bucket and a three-gallon bucket, can you put" +
                     "four gallons of water in the five - gallon bucket ? (Assume that you have" +
                     "an unlimited supply of water and that there are no measurement" +
                     "markings of any kind on the buckets.)");
@@ -79,7 +82,7 @@ namespace Midterm_Arzola
             }
             else if (level == 2 || allLevels)
             {
-                Console.WriteLine("3 - Tom is from the U.S. Census Bureau and greets Mary at her door. " +
+                Console.Write("3 - Tom is from the U.S. Census Bureau and greets Mary at her door. " +
                     "They have the following conversation:\n" +
                     "Tom: I need to know how old your three kids are.\n" +
                     "Mary: The product of their ages is 36.\n" +
@@ -89,6 +92,19 @@ namespace Midterm_Arzola
                     "Mary: The younger two are twins.\n" +
                     "Tom: Now I know their ages!Thanks!" +
                      "How old are Mary's kids and what is Mary's house number ?\n");
+                if (level2["problem3"]) Console.Write(" - COMPLETED");
+                Console.WriteLine();
+                Console.Write("4 - A new school has exactly 1,000 lockers and exactly 1,000 students.\n" +
+                    "On the first day of school, the students meet outside the building and agree\n" +
+                    "on the following plan: the first student will enter the school and open all\n" +
+                    "the lockers.The second student will then enter the school and close every locker\n" +
+                    "with an even number(2, 4, 6, a, etc.).The third student will then reverse every\n" +
+                    "third locker(3, 6, 9, 12, etc.).That is if the locker is closed, he or she will\n" +
+                    "open it; if it is open, he or she will close it. The fourth student will then\n" +
+                    "reverse every fourth locker, and so on until all 1000 students in turn have entered\n" +
+                    "the building and reversed the proper lockers. Which Lockers Will Remain Open?");
+                if (level2["problem4"]) Console.Write(" - COMPLETED");
+                Console.WriteLine();
             }
             else if (level == 3 || allLevels)
             {

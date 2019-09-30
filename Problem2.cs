@@ -9,7 +9,7 @@ namespace Midterm_Arzola
     public class Problem2 : IProblem
     {
         #region Properties
-        public WaterProblem WaterProblem { get; set; } = new WaterProblem();
+        private WaterProblem WaterProblem { get; set; } = new WaterProblem();
         #endregion
 
         #region Interface Implementation

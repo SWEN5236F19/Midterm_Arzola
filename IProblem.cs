@@ -4,6 +4,5 @@
     {
         bool Play();
         bool CheckWin();
-        void PrintStatus();
     }
 }
