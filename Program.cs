@@ -53,6 +53,9 @@ namespace Midterm_Arzola
                         if (completed) { MarkGameCompleted("problem3"); }
                         break;
                     case "4":
+                        Problem4 prob4 = new Problem4();
+                        completed = prob4.Play();
+                        if(completed) { MarkGameCompleted("problem4"); }
                         break;
                     case "exit":
                         play = false;
