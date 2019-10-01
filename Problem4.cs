@@ -8,15 +8,26 @@ namespace Midterm_Arzola
 {
     public class Problem4 : IProblem
     {
+        #region Properties
         public bool[] Lockers { get; set; } = new bool[1000];
         public int[] OpenLockerIndices { get; set; }
         public int[] PlayerResponse { get; set; }
+        #endregion
 
+        #region Interface Implementation
+        /// <summary>
+        /// Checks if the values input by user match the indices of the open lockers
+        /// </summary>
+        /// <returns></returns>
         public bool CheckWin()
         {
             return Enumerable.SequenceEqual(OpenLockerIndices, PlayerResponse);
         }
 
+        /// <summary>
+        /// Play Game
+        /// </summary>
+        /// <returns>Boolean Value indicated game was won</returns>
         public bool Play()
         {
             CalculateIndices();
@@ -42,7 +53,9 @@ namespace Midterm_Arzola
             }
             return win;
         }
+        #endregion
 
+        // Calculates the solution
         private void CalculateIndices()
         {
             var indices = Enumerable.Range(0, 1000).ToArray();

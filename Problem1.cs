@@ -11,7 +11,6 @@ namespace Midterm_Arzola
         #region Properties
         public bool ThreePintGlassOnePint { get; set; }
         public bool FivePintGlassOnePint { get; set; }
-
         public WaterProblem WaterProblem { get; set; } = new WaterProblem();
         #endregion
 

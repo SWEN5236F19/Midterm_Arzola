@@ -13,11 +13,16 @@ namespace Midterm_Arzola
         #endregion
 
         #region Interface Implementation
+        //Checks if there are 4 gallons in the 5 gallon bucket
         public bool CheckWin()
         {
             return (WaterProblem.FiveUnitContainer == 4) ? true : false;
         }
 
+        /// <summary>
+        /// Play Game
+        /// </summary>
+        /// <returns>Boolean Value indicated game was won</returns>
         public bool Play()
         {
             var play = true;

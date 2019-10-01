@@ -8,13 +8,20 @@ namespace Midterm_Arzola
 {
     public class Problem6 : IProblem
     {
+        #region Private variables
         private Dictionary<char, Stack<int>> Pegs = new Dictionary<char, Stack<int>>()
         {
             { 'a', new Stack<int>(new int[]{3,2,1 }) },
             { 'b', new Stack<int>() },
             { 'c', new Stack<int>() }
         };
+        #endregion
 
+        #region Interface Implementation
+        /// <summary>
+        /// checks if the stack has been moved to either rod a or b
+        /// </summary>
+        /// <returns></returns>
         public bool CheckWin()
         {
             var goalStack = new Stack<int>(new int[] { 3, 2, 1 });
@@ -22,6 +29,10 @@ namespace Midterm_Arzola
                 Enumerable.SequenceEqual(goalStack.ToArray(), Pegs['c'].ToArray())) ;
         }
 
+        /// <summary>
+        /// Play Game
+        /// </summary>
+        /// <returns>Boolean Value indicated game was won</returns>
         public bool Play()
         {
             bool win = false;
@@ -69,6 +80,25 @@ namespace Midterm_Arzola
             }
             return win;
         }
+        #endregion
+
+        #region Private Methods
+        // performs towers of hanoi operations
+        private void TowersOfHanoi(char startPeg, char endPeg)
+        {
+            if (Pegs[startPeg].Count > 0)
+            {
+                var disk = Pegs[startPeg].Peek();
+                if (Pegs[endPeg].Count > 0 && Pegs[endPeg].Peek() < disk)
+                {
+                    Console.WriteLine("Disk on Peg: " + endPeg + " is smaller than " + disk);
+                }
+                else
+                {
+                    Pegs[endPeg].Push(Pegs[startPeg].Pop());
+                }
+            }
+        }
 
         private void PrintStatus()
         {
@@ -80,22 +110,6 @@ namespace Midterm_Arzola
             else { Console.WriteLine("Peg C: Empty"); }
         }
 
-        private void TowersOfHanoi(char startPeg, char endPeg)
-        {
-            if (Pegs[startPeg].Count > 0)
-            {
-                var disk = Pegs[startPeg].Peek();
-                if(Pegs[endPeg].Count > 0 && Pegs[endPeg].Peek() < disk)
-                {
-                    Console.WriteLine("Disk on Peg: " + endPeg + " is smaller than " + disk);
-                }
-                else
-                {
-                    Pegs[endPeg].Push(Pegs[startPeg].Pop());
-                }
-            }
-        }
-
         private void PrintMenu()
         {
             Console.WriteLine("1 - Move A to B");
@@ -105,5 +119,6 @@ namespace Midterm_Arzola
             Console.WriteLine("5 - Move C to A");
             Console.WriteLine("6 - Move C to B");
         }
+        #endregion
     }
 }

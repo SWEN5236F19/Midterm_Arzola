@@ -9,6 +9,10 @@ public class Problem5 : IProblem
     #endregion
 
     #region Interface Implementation
+    /// <summary>
+    /// Checks if there are 4 gallons in one bucket and also if user hasn't exceeded the moves
+    /// </summary>
+    /// <returns></returns>
     public bool CheckWin()
     {
         var fourGallonsOneBucket = (WaterProblem.FiveUnitContainer == 4) ? true : false;
@@ -16,6 +20,10 @@ public class Problem5 : IProblem
         return (fourGallonsOneBucket && numMovesLessThanFive);
     }
 
+    /// <summary>
+    /// Play Game
+    /// </summary>
+    /// <returns>Boolean Value indicated game was won</returns>
     public bool Play()
     {
         var play = true;
@@ -68,13 +76,15 @@ public class Problem5 : IProblem
         return won;
     }
 
-    public void PrintStatus()
-    {
-        WaterProblem.PrintStatus("Three Gallon Bucket", "Five Gallon Bucket");
-    }
     #endregion
 
     #region Private Methods
+    private void PrintStatus()
+    {
+        WaterProblem.PrintStatus("Three Gallon Bucket", "Five Gallon Bucket");
+        Console.WriteLine("Moves: " + Moves);
+    }
+
     private void PrintMenu()
     {
         Console.WriteLine("F3 - Fill Three Gallon Bucket");
