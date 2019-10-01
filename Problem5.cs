@@ -1,6 +1,7 @@
-﻿using System;
+﻿using Midterm_Arzola;
+using System;
 
-public class Problem5
+public class Problem5 : IProblem
 {
     #region Properties
     private WaterProblem WaterProblem { get; set; } = new WaterProblem();
@@ -11,7 +12,7 @@ public class Problem5
     public bool CheckWin()
     {
         var fourGallonsOneBucket = (WaterProblem.FiveUnitContainer == 4) ? true : false;
-        var numMovesLessThanFive = (Moves < 5) ? true : false;
+        var numMovesLessThanFive = (Moves < 10) ? true : false;
         return (fourGallonsOneBucket && numMovesLessThanFive);
     }
 
@@ -58,9 +59,10 @@ public class Problem5
             PrintStatus();
             if (CheckWin())
             {
-                Console.WriteLine("Congratulations you won!");
                 play = false;
                 won = true;
+                Console.WriteLine("Congratulations you won!");
+                Console.WriteLine();
             }
         }
         return won;
@@ -84,6 +86,4 @@ public class Problem5
         Console.WriteLine();
     }
     #endregion
-}
-
 }

@@ -9,7 +9,7 @@ namespace Midterm_Arzola
     static class Program
     {
         static int level = 1;
-        static bool allLevels = false;
+        static bool allLevels = true;
 
         static Dictionary<string, bool> level1 = new Dictionary<string, bool>()
         {
@@ -23,8 +23,8 @@ namespace Midterm_Arzola
         };
         static Dictionary<string, bool> level3 = new Dictionary<string, bool>()
         {
-            {"problem4",  false},
-            {"problem5",  false}
+            {"problem5",  false},
+            {"problem6",  false}
         };
 
         static void Main(string[] args)
@@ -57,6 +57,16 @@ namespace Midterm_Arzola
                         completed = prob4.Play();
                         if(completed) { MarkGameCompleted("problem4"); }
                         break;
+                    case "5":
+                        Problem5 prob5 = new Problem5();
+                        completed = prob5.Play();
+                        if (completed) { MarkGameCompleted("problem5"); }
+                        break;
+                    case "6":
+                        Problem6 prob6 = new Problem6();
+                        completed = prob6.Play();
+                        if (completed) { MarkGameCompleted("problem6"); }
+                        break;
                     case "exit":
                         play = false;
                         break;
@@ -71,11 +81,13 @@ namespace Midterm_Arzola
             Console.WriteLine("Please Select from the following games: \n");
             if (level == 1 || allLevels)
             {
+                Console.WriteLine("=========================================================================");
                 Console.Write("1 - A bartender has a three-pint glass and a five-pint glass. A customer " +
                     "walks in and orders four pints of beer. Without a measuring cup but with" +
                     "an unlimited supply of beer how does he get a single pint in either glass ? ");
                 if (level1["problem1"]) Console.Write(" - COMPLETED");
                 Console.WriteLine();
+                Console.WriteLine("=========================================================================");
                 Console.Write("2 - Using just a five-gallon bucket and a three-gallon bucket, can you put" +
                     "four gallons of water in the five - gallon bucket ? (Assume that you have" +
                     "an unlimited supply of water and that there are no measurement" +
@@ -83,8 +95,9 @@ namespace Midterm_Arzola
                 if (level1["problem2"]) Console.Write(" - COMPLETED");
                 Console.WriteLine();
             }
-            else if (level == 2 || allLevels)
+            if (level == 2 || allLevels)
             {
+                Console.WriteLine("=========================================================================");
                 Console.Write("3 - Tom is from the U.S. Census Bureau and greets Mary at her door. " +
                     "They have the following conversation:\n" +
                     "Tom: I need to know how old your three kids are.\n" +
@@ -94,9 +107,10 @@ namespace Midterm_Arzola
                     "Tom: I still don't know their ages.\n" +
                     "Mary: The younger two are twins.\n" +
                     "Tom: Now I know their ages!Thanks!" +
-                     "How old are Mary's kids and what is Mary's house number ?\n");
+                     "How old are Mary's kids and what is Mary's house number ?");
                 if (level2["problem3"]) Console.Write(" - COMPLETED");
                 Console.WriteLine();
+                Console.WriteLine("=========================================================================");
                 Console.Write("4 - A new school has exactly 1,000 lockers and exactly 1,000 students.\n" +
                     "On the first day of school, the students meet outside the building and agree\n" +
                     "on the following plan: the first student will enter the school and open all\n" +
@@ -109,10 +123,11 @@ namespace Midterm_Arzola
                 if (level2["problem4"]) Console.Write(" - COMPLETED");
                 Console.WriteLine();
             }
-            else if (level == 3 || allLevels)
+            if (level == 3 || allLevels)
             {
-                Console.Write("5 - Finish the Water Problem in less than 4 moves - Using just a five-gallon bucket and a three-gallon bucket, can you put" +
-                    "four gallons of water in the five - gallon bucket ? ");
+                Console.WriteLine("=========================================================================");
+                Console.Write("5 - Finish the Water Problem in less than 10 moves - Using just a five-gallon\n" +
+                    " bucket and a three-gallon bucket, can you put four gallons of water in the five - gallon bucket ? ");
                 if (level3["problem5"]) Console.Write(" - COMPLETED");
                 Console.WriteLine();
                 Console.Write("6 - Towers of Hanoi - You have three rods, one with a stack of three disks. Move the stack of discs to another rod without\n" +
@@ -123,6 +138,8 @@ namespace Midterm_Arzola
 
             }
             Console.WriteLine("Exit - To Close Game");
+            Console.WriteLine("=========================================================================");
+
             Console.WriteLine();
         }
 

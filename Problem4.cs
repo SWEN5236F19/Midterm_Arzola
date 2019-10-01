@@ -20,10 +20,10 @@ namespace Midterm_Arzola
         public bool Play()
         {
             CalculateIndices();
-            bool play = false;
+            bool play = true;
             bool win = false;
             while(play){
-                Console.WriteLine("Please enter which lockers numbers were left open from 1-1000, seperated by comas");
+                Console.WriteLine("Please enter which lockers numbers were left open from 0-999, seperated by comas");
                 Console.WriteLine("E.g. 1,5,9");
                 var input = Console.ReadLine();
                 if(input.ToLower().Equals("exit")) { break ;}
@@ -33,6 +33,11 @@ namespace Midterm_Arzola
                     win = true;
                     play = false;
                     Console.WriteLine("Congratulations you won!");
+                    Console.WriteLine();
+                }
+                else
+                {
+                    Console.WriteLine("Nope, Please try again");
                 }
             }
             return win;
@@ -40,8 +45,8 @@ namespace Midterm_Arzola
 
         private void CalculateIndices()
         {
-            var indices = Enumerable.Range(1, 1000).ToArray();
-            for (int i = 1; i <= 1000; i++)
+            var indices = Enumerable.Range(0, 1000).ToArray();
+            for (int i = 1; i < 1000; i++)
             {
                 if (i == 1)
                 {
@@ -49,11 +54,10 @@ namespace Midterm_Arzola
                 }
                 else
                 {
-                    var evenIndices = Enumerable.Where(indices, x => x + 1 % i == 0).ToArray();
+                    var evenIndices = Enumerable.Where(indices, x => x % i == 0).ToArray();
                     Array.ForEach(evenIndices, index => Lockers[index] = !Lockers[index]);
                 }
             }
-            Lockers[0] = false; //we're ignoring 0
             OpenLockerIndices = Enumerable.Where(indices, x => Lockers[x]).ToArray();
         }
     }

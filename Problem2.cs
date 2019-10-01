@@ -56,6 +56,7 @@ namespace Midterm_Arzola
                 if (CheckWin())
                 {
                     Console.WriteLine("Congratulations you won!");
+                    Console.WriteLine();
                     play = false;
                     won = true;
                 }
